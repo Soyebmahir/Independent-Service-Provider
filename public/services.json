@@ -1,0 +1,45 @@
+[
+    {
+      "name": "Portrait Photography",
+      "id": "1",
+      "img":"https://images.ctfassets.net/u0haasspfa6q/5UyqvlWv1EOyq8IaSGk2el/f0645cd8f2a6d76457682f857d2fb186/alekzan-powell-5t5krHi1LQ8-unsplash",
+      "price":3000,
+      "description":"One of the most common photography styles, portrait photography, or portraiture, aims to capture the personality and mood of an individual or group."
+    },
+    {
+      "name": "Fashion Photography",
+      "id": "2",
+      "img":"https://dvyvvujm9h0uq.cloudfront.net/com/articles/1593544514-899073-viktor-juric-yhgwqxukabs-unsplashjpg.jpg",
+      "price":5000,
+      "description":"Fashion photography showcases and glamorizes fashion clothing, shoes, and accessories to make them more desirable to consumers. It is commonly published in magazines and online."
+    },
+    {
+      "name": "Sports Photography",
+      "id": "3",
+      "img":"https://picturecorrect-wpengine.netdna-ssl.com/wp-content/uploads/2013/02/sports-photography-tips.jpg",
+      "price":3000,
+      "description":"By catching athletes, coaches, and even fans at the perfect moment, sports photographs can depict the passion, drama, and emotion that fuels sporting events."
+    },
+    {
+      "name": "Wedding Photograpy",
+      "id": "4",
+      "img":"https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW5kaWFuJTIwd2VkZGluZyUyMHBob3RvZ3JhcGh5fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "price":15000,
+      "description":"Nobody knows better than a wedding photojournalist that wedding days can almost seem to breed disorder. At the same time, it’s possible that no one could be better prepared to deal with the unexpected."
+    },
+    {
+      "name": "Architectural Photography",
+      "id": "5",
+      "img":"https://images.squarespace-cdn.com/content/v1/5adb89f2aa49a19e7960b934/1608602979923-6PW5561L0G0LZFUA6Z9Q/image-asset.jpeg",
+      "price":6000,
+      "description":"Both the interior and exterior design of buildings and structures are the subject of architectural photography. From warehouses to city bridges to old country barns, this genre encompasses diverse structures. "
+    },
+    {
+      "name": "Editorial photography",
+      "id": "6",
+      "img":"https://thumbs.dreamstime.com/b/john-f-kennedy-cover-magazine-president-life-154116042.jpg",
+      "price":10000,
+      "description":"Editorial photography is taken to illustrate a story or article, typically for a magazine or newspaper. The subject of editorial photography can vary widely and is entirely dependent on the topic of the text it accompanies. "
+    }
+    
+  ]
