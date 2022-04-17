@@ -1,10 +1,11 @@
 
 import './App.css';
+import Header from './Shared/Header/Header';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hellow There</h1>
+      <Header></Header>
     </div>
   );
 }
