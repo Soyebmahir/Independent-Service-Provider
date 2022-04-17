@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
+        <>
             {/* using react bootstrap  */}
-            <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" sticky='top'>
                 <Container>
                     <Navbar.Brand as={Link} to="/home">Captured Moments</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -31,7 +31,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </div>
+        </>
     );
 };
 
