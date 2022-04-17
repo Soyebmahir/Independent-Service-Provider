@@ -1,20 +1,48 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const Login = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const nevigate = useNavigate();
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate()
+    if (user) {
+        navigate(from, { replace: true })
+    }
     const handleFormSubmit = (event) => {
         event.preventDefault()
         const email = emailRef.current.value
         const password = passwordRef.current.value
-        console.log(email, password);
+        signInWithEmailAndPassword(email, password);
     }
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     const navigateRegister = (event) => {
         nevigate('/register')
+    }
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('please enter your email address');
+        }
     }
     return (
         <div className='container w-50 mx-auto'>
@@ -37,8 +65,10 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
-            <p>New to Genius Car Service ? <Link to={"/register"} className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}>Register First</Link ></p>
-        </div>
+            <p>New to Captured Moments ? <Link to={"/register"} className='text-danger pe-auto text-decoration-none'>Register First</Link ></p>
+            <p>Forget Password ? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+            <ToastContainer></ToastContainer>
+        </div >
     );
 };
 

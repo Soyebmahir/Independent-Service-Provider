@@ -1,24 +1,37 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Register = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const nameRef = useRef('')
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     // const nevigate = useNavigate();
     const handleFormSubmit = (event) => {
-        event.preventDefault(event)
+
         event.preventDefault()
         // // console.log(event.target.email.value);
         // another way of getting these value
         // const email =event.target.email.value
         // const password =event.target.password.value
         // const name =event.target.name.value
-        const email = emailRef.current.value
-        const password = passwordRef.current.value
-        const name = nameRef.current.value
+        let email = emailRef.current.value
+        let password = passwordRef.current.value
+        let name = nameRef.current.value
         console.log(email, password, name);
+        createUserWithEmailAndPassword(email, password)
+
+
+
     }
 
     return (
