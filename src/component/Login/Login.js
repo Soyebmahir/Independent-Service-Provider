@@ -5,20 +5,24 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
-    const nevigate = useNavigate();
+
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
-
+    let errorElement;
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    }
     const navigate = useNavigate()
     if (user) {
         navigate(from, { replace: true })
@@ -31,9 +35,9 @@ const Login = () => {
     }
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-    const navigateRegister = (event) => {
-        nevigate('/register')
-    }
+    // const navigateRegister = (event) => {
+    //     nevigate('/register')
+    // }
     const resetPassword = async () => {
         const email = emailRef.current.value;
         if (email) {
@@ -65,9 +69,11 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
+            {errorElement}
             <p>New to Captured Moments ? <Link to={"/register"} className='text-danger pe-auto text-decoration-none'>Register First</Link ></p>
             <p>Forget Password ? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
             <ToastContainer></ToastContainer>
+            <SocialLogin></SocialLogin>
         </div >
     );
 };
