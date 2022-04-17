@@ -5,6 +5,7 @@ import About from './component/About/About';
 import Checkout from './component/Checkout/Checkout';
 import Home from './component/Home/Home/Home';
 import Login from './component/Login/Login';
+import Register from './component/Register/Register';
 import RequireAuth from './component/RequireAuth/RequireAuth';
 import Footer from './Shared/Footer/Footer';
 import Header from './Shared/Header/Header';
@@ -22,6 +23,8 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
+
         <Route path="/about" element={<About></About>}></Route>
 
       </Routes>
