@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 const RequireAuth = ({ children }) => {
     const [user] = useAuthState(auth);
     let location = useLocation();
+    console.log(user);
 
     if (!user) {
         // Redirect them to the /login page, but save the current location they were
