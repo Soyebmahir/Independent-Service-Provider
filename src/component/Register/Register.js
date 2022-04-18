@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -10,6 +10,10 @@ const Register = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const nameRef = useRef('')
+    const location = useLocation()
+
+    let from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate()
 
     const [
         createUserWithEmailAndPassword,
@@ -19,9 +23,9 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
 
-    const nevigate = useNavigate();
+
     if (user) {
-        nevigate('/login')
+        navigate(from, { replace: true })
     }
 
     const handleFormSubmit = (event) => {

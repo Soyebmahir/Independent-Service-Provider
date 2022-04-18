@@ -12,7 +12,9 @@ const Login = () => {
     const passwordRef = useRef('')
 
     const location = useLocation()
+
     let from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate()
     let errorElement;
     const [
         signInWithEmailAndPassword,
@@ -23,7 +25,7 @@ const Login = () => {
     if (error) {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
     }
-    const navigate = useNavigate()
+
     if (user) {
         navigate(from, { replace: true })
     }
@@ -49,7 +51,7 @@ const Login = () => {
         }
     }
     return (
-        <div className='container w-50 mx-auto'>
+        <div className='container w-50 mx-auto d-flex flex-column min-vh-100'>
             <h1 className='text-success'>Login please</h1>
             <Form onSubmit={handleFormSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

@@ -6,6 +6,7 @@ import Blogs from './component/Blogs/Blogs';
 import Checkout from './component/Checkout/Checkout';
 import Home from './component/Home/Home/Home';
 import Login from './component/Login/Login';
+import NotFound from './component/NotFound/NotFound';
 import Register from './component/Register/Register';
 import RequireAuth from './component/RequireAuth/RequireAuth';
 import Footer from './Shared/Footer/Footer';
@@ -27,8 +28,8 @@ function App() {
         }></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
-
         <Route path="/about" element={<About></About>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
 
       </Routes>
       <Footer></Footer>

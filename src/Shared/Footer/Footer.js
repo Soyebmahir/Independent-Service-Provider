@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className='bg-dark ' style={{ height: "60px", margin: "10px", borderRadius: "15px", textAlign: "center" }} >
 
-            <p className='text-light' >copy right @{year}</p>
+            <p className='text-light' >Copy Right @{year}</p>
 
         </div>
     );
