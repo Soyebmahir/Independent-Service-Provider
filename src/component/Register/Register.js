@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 import auth from '../../firebase.init';
 
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -17,11 +18,9 @@ const Register = () => {
 
     const [
         createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+        user
 
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
 
 
@@ -40,6 +39,7 @@ const Register = () => {
         createUserWithEmailAndPassword(email, password);
 
     }
+
 
     return (
         <div className=" container w-50 mx-auto">
@@ -69,6 +69,7 @@ const Register = () => {
                 </Button>
             </Form>
             <p>ALready have an Account ? <Link to={"/login"} className='text-danger pe-auto text-decoration-none' >Login please</Link ></p>
+
             <SocialLogin></SocialLogin>
         </div>
     );
