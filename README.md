@@ -2,7 +2,7 @@
 ### `Name :`  [Captured Moments](https://captured-moments-11d5c.web.app/).
 ### `Website :` [Captured Moments](https://captured-moments-11d5c.web.app/).
 
-## 5 bullet points about mysite
+## 5 bullet points about my site
 1. In my  [Captured Moments](https://captured-moments-11d5c.web.app/) site I provide photography service.
 2. In home page there are two basic component . One is Services component another is Banner component 
 3. In service card there is a button name checkout. When you click on it it will create a dynamic route and show you details about that particular service.
