@@ -11,11 +11,11 @@ import Loading from '../Loading/Loading';
 const Login = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
-
+    const navigate = useNavigate()
     const location = useLocation()
 
     let from = location.state?.from?.pathname || "/";
-    const navigate = useNavigate()
+
     let errorElement;
     const [
         signInWithEmailAndPassword,
@@ -23,7 +23,9 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
     if (loading || sending) {
         return <Loading></Loading>
     }
