@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const emailRef = useRef('')
@@ -22,6 +23,10 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
     if (error) {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
     }
@@ -35,7 +40,7 @@ const Login = () => {
         const password = passwordRef.current.value
         signInWithEmailAndPassword(email, password);
     }
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
 
     // const navigateRegister = (event) => {
     //     nevigate('/register')

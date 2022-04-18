@@ -5,7 +5,7 @@ import Service from '../Service/Service';
 
 const Services = () => {
     const [services] = useServices()
-    console.log(services);
+    // console.log(services);
     return (
         <div className='container'>
             <h2 className='text-info text-center'>{services.length} Services Available</h2>
